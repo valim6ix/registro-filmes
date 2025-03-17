@@ -1,0 +1,38 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Filmes</title>
+    <link rel="stylesheet" href="{/css/style.css}">
+</head>
+<body>
+    <h1>Lista de Filmes</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Ano de Lançamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="filme : ${filmes}">
+                <td th:text="${filme.id}"></td>
+                <td th:text="${filme.titulo}"></td>
+                <td th:text="${filme.anoLancamento}"></td>
+                <td>
+                    <a th:href="@{/filmes/{id}(id=${filme.id})}">Ver detalhes</a> |
+                    <a th:href="@{/filmes/editar/{id}(id=${filme.id})}">Editar</a> |
+                    <a th:href="@{/filmes/excluir/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir?');">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/filmes/cadastro">Cadastrar novo filme</a>
+    
+    <script src="{/js/script.js}"></script>
+</body>
+</html>

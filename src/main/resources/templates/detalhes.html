@@ -1,0 +1,25 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Filme</title>
+    <link rel="stylesheet" href="{/css/style.css}">
+</head>
+<body>
+    <h1>Detalhes do Filme</h1>
+
+    <div th:if="${filme != null}">
+        <p><strong>ID:</strong> <span th:text="${filme.id}"></span></p>
+        <p><strong>Título:</strong> <span th:text="${filme.titulo}"></span></p>
+        <p><strong>Ano de Lançamento:</strong> <span th:text="${filme.anoLancamento}"></span></p>
+    </div>
+
+    <div th:if="${filme == null}">
+        <p>Filme não encontrado.</p>
+    </div>
+
+    <br>
+    <a href="/filmes">Voltar para a lista</a>
+    
+    <script src="{/js/script.js}"></script>
+</body>
+</html>
